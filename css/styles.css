@@ -8,6 +8,7 @@ body {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 24px;
   row-gap: 24px;
 }
