@@ -85,3 +85,23 @@ function imagesTemplate(images) {
 const markup = imagesTemplate(images);
 const listElem = document.querySelector(".gallery");
 listElem.insertAdjacentHTML("afterbegin", `${markup}`);
+
+// Саме час додати функціонал прослуховування кліка по елементах галереї та отримання посилання на велике зображення при кліку. Для цього використовуй прийом делегування на ul.gallery. Поки що при кліку на елемент галереї виводь у консоль посилання на велике зображення, що зберігається як значення атрибуту data-source елемента img.
+
+listElem.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.nodeName !== "IMG") {
+    return;
+  }
+  showModal(e.target.dataset.source);
+});
+
+function showModal(imageUrl) {
+  const instance = basicLightbox.create(
+    `
+ <img  src="${imageUrl}"/>
+   
+    `
+  );
+  instance.show();
+}
